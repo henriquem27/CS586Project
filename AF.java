@@ -3,6 +3,8 @@ public interface AF {
     StorePrice getSPobj();
     IncreaseCF getICFobj();
     ReturnCoin getRCobj();
-    
+    DisposeAdditive getDAddobj();
+    ZeroCF getZCFobj();
+    DS getDSobj();
 
 }
