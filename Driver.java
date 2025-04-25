@@ -1,8 +1,6 @@
 import java.util.Scanner;
-public class Driver
-{
-    public static void main(String args[])
-    { // partial driver
+public class Driver {
+    public static void main(String args[]) { // partial driver
         VM1 vm1 = new VM1();
         float p;
         float v;
@@ -39,17 +37,14 @@ public class Driver
         System.out.print("\n");
         char ch = '1';
         Scanner sc = new Scanner(System.in);
-        while (ch != 'q')
-        {
-            1
+        while (ch != 'q') {
+
             System.out.print(" Select Operation: ");
             System.out.print("\n");
-            System.out.print("0-create,1-coin,2-sugar,3-chocolate,4-
-                    cappuccino,5-insert_cups,6-set_price,7-cancel, 8-card");
-                    System.out.print("\n");
+            System.out.print("0-create,1-coin,2-sugar,3-chocolate,4-cappuccino,5-insert_cups,6-set_price,7-cancel, 8-card");
+            System.out.print("\n");
             ch = sc.next().charAt(0);
-            switch (ch)
-            {
+            switch (ch) {
                 case '0': //create
                     System.out.print(" Operation: create(float p)");
                     System.out.print("\n");
@@ -88,7 +83,6 @@ public class Driver
                     System.out.print("\n");
                     n = sc.nextInt();
                     vm1.insert_cups(n);
-                    2
                     break;
                 case '6': // set_price
                     System.out.print(" Operation: set_price(float v)");
@@ -114,3 +108,5 @@ public class Driver
             } // endswitch
         } //endwhile
     }
+
+}

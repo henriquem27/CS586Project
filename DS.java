@@ -1,3 +1,4 @@
+// Generic implementation we know T is a number but it can be float or integer depeding on vending machine
 public class DS<T extends Number>{
     protected T temp_p;
     protected T temp_v;
@@ -13,19 +14,15 @@ public class DS<T extends Number>{
     public T getTemp_p() {
         return temp_p;
     }
-
     public T getTemp_v() {
         return temp_v;
     }
-
     public T getPrice() {
         return price;
     }
-
     public T getCf() {
         return cf;
     }
-
     public void setTemp_p(T temp_p) {
         this.temp_p = temp_p;
     }

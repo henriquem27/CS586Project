@@ -15,8 +15,8 @@ public class CF1 implements AF {
     }
 
     @Override
-    public DS getDSobj() {
-        return null;
+    public DS<Float> getDSobj() {
+        return new DS<>(0.0f, 0.0f, 0.0f, 0.0f);
     }
 
     @Override
@@ -25,8 +25,8 @@ public class CF1 implements AF {
     }
 
     @Override
-    public StorePrice getSPobj() {
-        return null;
+    public StorePrice<Float> getSPobj() {
+        return new StorePrice1();
     }
 
     @Override
