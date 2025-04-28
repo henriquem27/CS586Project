@@ -1,11 +1,28 @@
 public class coininserted extends State{
     public coininserted(MDAEFSM mdaefsm, Op<?> op) {
-        System.out.println("CoinInserted Initialized");
+        vmState(mda);
+        setOp(op);
+        System.out.println("State: Start Initialized");
     }
-
+    @Override
+    public void dispose_drink(int d){
+        System.out.println("State CI: Disposing Drink");
+        op.DisposeAdditive(mda.getAl());
+        op.DisposeDrink(d);
+        op.ZeroCF();
+    }
+    @Override
+    public void coin(int f){
+        op.ReturnCoins();
+    }
+    public void cancel(){
+        op.ReturnCoins();
+        op.ZeroCF();
+    }
     @Override
     public int getStateId() {
         return 3;
     }
+
 }
 
