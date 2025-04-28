@@ -1,10 +1,21 @@
 public class VM1 {
-    MDAEFSM md = new MDAEFSM();
+    private MDAEFSM md;
+    private AF af;
 
     public void create(float p) {
+        this.af = new CF1();
+        DS<Float> ds = (DS<Float>) af.getDSobj(); // Cast needed if AF returns DSInterface<?>
+        StorePrice<Float> sp = (StorePrice<Float>) af.getSPobj();
         System.out.println("Creating a MDAEFSM");
-        md.Create(p);
+        this.af = new CF1(); // 1. Create the factory for VM1
+        Op<Float> op = new Op<>(ds, sp);
+
+        // 4. Create MDAEFSM, injecting the Op object
+        this.md = new MDAEFSM(op);
+        ds.setTemp_p(p);
+        md.create();
     }
+
     public void coin(float v){}
     public void card(float x){}
     public void sugar( ){}

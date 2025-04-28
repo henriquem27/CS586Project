@@ -1,6 +1,13 @@
 abstract class State {
     protected MDAEFSM mda;
-    protected Op op;
+    protected Op<?> op;
+
+
+
+    public void setOp(Op<?> op) {
+        this.op = op;
+    }
+
     public void vmState(MDAEFSM mda){
         this.mda = mda;
     }

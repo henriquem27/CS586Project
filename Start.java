@@ -3,13 +3,17 @@ public class Start extends State{
         super.vmState(mda);
     }
 
-    public void op(Op op) {
-        super.op(op);
+    public Start(MDAEFSM mda, Op<?> op) {
+        vmState(mda);
+        setOp(op);
+        System.out.println("State: Start Initialized");
     }
 
     @Override
-    public void create(){
-        Op.StorePrice();
+    public void create() {
+        System.out.println("EVENT -> create() in state Start");
+        op.StorePrice(); // Store the price set in VM1.create() via temp_p
+        // Transition to Idle
     }
 
     @Override
