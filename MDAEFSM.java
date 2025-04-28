@@ -58,33 +58,28 @@ public class MDAEFSM {
     }
 
     public void coin(int f) {
-        if(currentState.getStateId()==1 ) {
-            // just return coins.
-            currentState.coin(f);
-        }
+        currentState.coin(f);
+
         if(currentState.getStateId()==2) {
-            if(f==0){
-                currentState.coin(f);
-            }
-            else{
+            if (f == 0) {
+                System.out.println("Need more funds");
+            } else {
+                System.out.println("Select Drinks and Additives");
                 // perform action and change state
-                currentState.coin(f);
                 //zero additives
-                al[0]=0;
-                al[1]=0;
+                al[0] = 0;
+                al[1] = 0;
                 changeState(getCoinsInsertedState());
             }
+        }
 
-        }
-        if(currentState.getStateId()==3) {
-            currentState.coin(f);
-        }
+
 
     }
     public void card() {
+        currentState.card();
         if(currentState.getStateId()==2) {
             // just return coins.
-            currentState.card();
             //zero additives
             al[0]=0;
             al[1]=0;

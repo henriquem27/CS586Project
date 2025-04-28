@@ -15,7 +15,9 @@ public class coininserted extends State{
     @Override
     public void coin(int f){
         System.out.println("State CI: Coin "+f);
-        op.ReturnCoins();
+        if(f==1){
+            op.ReturnCoins();
+        }
     }
     public void cancel(){
         op.ReturnCoins();
