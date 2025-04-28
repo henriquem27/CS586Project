@@ -6,6 +6,7 @@ public class idle extends State{
     }
     @Override
     public void coin(int f){
+        System.out.println("State: Idle coin");
         op.IncreaseCF();
     }
     @Override

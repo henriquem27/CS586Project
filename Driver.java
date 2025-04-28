@@ -9,6 +9,8 @@ public class Driver {
         System.out.print("1. VM-1");
         System.out.print("\n");
         System.out.print("2. VM-2");
+        System.out.print("\n");
+
         ch = sc.next().charAt(0);
         if (ch == '1') {
             VM1 vm1 = new VM1();
@@ -51,7 +53,7 @@ public class Driver {
 
                 System.out.print(" Select Operation: ");
                 System.out.print("\n");
-                System.out.print("0-create,1-coin,2-sugar,3-chocolate,4-cappuccino,5-insert_cups,6-set_price,7-cancel, 8-card");
+                System.out.print("0-create,1-coin,2-sugar \n 3-chocolate,4-cappuccino,5-insert_cups \n 6-set_price,7-cancel, 8-card");
                 System.out.print("\n");
                 ch = sc.next().charAt(0);
                 switch (ch) {

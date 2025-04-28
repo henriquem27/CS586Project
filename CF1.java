@@ -1,17 +1,17 @@
 public class CF1 implements AF {
     @Override
-    public IncreaseCF getICFobj() {
-        return null;
+    public IncreaseCF<Float> getICFobj() {
+        return new IncreaseCF1();
     }
 
     @Override
     public DisposeAdditive getDAddobj() {
-        return null;
+        return new DisposeAdditive1();
     }
 
     @Override
     public DisposeDrink getDDobj() {
-        return null;
+        return new DisposeDrink1();
     }
 
     @Override
@@ -21,7 +21,7 @@ public class CF1 implements AF {
 
     @Override
     public ReturnCoin getRCobj() {
-        return null;
+        return new ReturnCoin1();
     }
 
     @Override
@@ -30,8 +30,8 @@ public class CF1 implements AF {
     }
 
     @Override
-    public ZeroCF getZCFobj() {
-        return null;
+    public ZeroCF<Float> getZCFobj() {
+        return new ZeroCF1();
     }
 
 }

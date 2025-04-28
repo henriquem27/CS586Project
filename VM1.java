@@ -8,9 +8,14 @@ public class VM1 {
         this.af = new CF1();
         this.ds = (DS<Float>) af.getDSobj(); // Cast needed if AF returns DSInterface<?>
         StorePrice<Float> sp = (StorePrice<Float>) af.getSPobj();
+        ZeroCF<Float> zcf = (ZeroCF<Float>) af.getZCFobj();
+        IncreaseCF<Float> icf = (IncreaseCF<Float>) af.getICFobj();
+        ReturnCoin rc  = af.getRCobj();
+        DisposeDrink dd = af.getDDobj();
+        DisposeAdditive da = af.getDAddobj();
         System.out.println("Creating a MDAEFSM");
-        this.af = new CF1(); // 1. Create the factory for VM1
-        Op<Float> op = new Op<>(ds, sp);
+         // 1. Create the factory for VM1
+        Op<Float> op = new Op<>(ds, sp,zcf,icf,da,dd,rc);
 
         // 4. Create MDAEFSM, injecting the Op object
         this.md = new MDAEFSM(op);
@@ -23,7 +28,7 @@ public class VM1 {
 
     public void coin(float v){
         ds.setTemp_v(v);
-        if(ds.getCf()>= ds.getPrice()){md.coin(1);}
+        if(ds.getCf()+v>= ds.getPrice()){md.coin(1);}
         else{md.coin(0);}
 
     }

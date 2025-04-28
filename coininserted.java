@@ -1,5 +1,6 @@
 public class coininserted extends State{
     public coininserted(MDAEFSM mdaefsm, Op<?> op) {
+        this.mda = mdaefsm;
         vmState(mda);
         setOp(op);
         System.out.println("State: Start Initialized");
@@ -13,6 +14,7 @@ public class coininserted extends State{
     }
     @Override
     public void coin(int f){
+        System.out.println("State CI: Coin "+f);
         op.ReturnCoins();
     }
     public void cancel(){

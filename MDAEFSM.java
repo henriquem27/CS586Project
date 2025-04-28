@@ -65,7 +65,6 @@ public class MDAEFSM {
         if(currentState.getStateId()==2) {
             if(f==0){
                 currentState.coin(f);
-
             }
             else{
                 // perform action and change state
