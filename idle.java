@@ -1,7 +1,6 @@
 public class idle extends State{
-    public idle(MDAEFSM mda, Op<?> op) {
-        vmState(mda);
-        setOp(op);
+    public idle(MDAEFSM mda, Op<?> op,Data data) {
+        super(mda,op,data);
         System.out.println("State: Start Initialized");
     }
     @Override

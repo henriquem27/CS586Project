@@ -1,11 +1,7 @@
 public class Start extends State{
-    public void vmState(MDAEFSM mda){
-        super.vmState(mda);
-    }
 
-    public Start(MDAEFSM mda, Op<?> op) {
-        vmState(mda);
-        setOp(op);
+    public Start(MDAEFSM mda, Op<?> op, Data data_obj) {
+        super(mda, op, data_obj);
         System.out.println("State: Start Initialized");
     }
 

@@ -1,7 +1,6 @@
 public class nocups extends State{
-    public nocups(MDAEFSM mda, Op<?> op) {
-        vmState(mda);
-        setOp(op);
+    public nocups(MDAEFSM mda, Op<?> op,Data data_obj) {
+        super(mda,op,data_obj);
         System.out.println("State: Start Initialized");
     }
 

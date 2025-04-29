@@ -1,3 +1,3 @@
-public interface ZeroCF<T extends Number> {
-    public void zeroCF(DS<T> ds);
+public interface ZeroCF {
+    public void zeroCF();
 }

@@ -1,14 +1,15 @@
+import java.util.Arrays;
+
 public class coininserted extends State{
-    public coininserted(MDAEFSM mdaefsm, Op<?> op) {
-        this.mda = mdaefsm;
-        vmState(mda);
-        setOp(op);
+    public coininserted(MDAEFSM mdaefsm, Op<?> op,Data data_obj) {
+        super(mdaefsm,op,data_obj);
         System.out.println("State: Start Initialized");
     }
     @Override
     public void dispose_drink(int d){
         System.out.println("State CI: Disposing Drink");
-        op.DisposeAdditive(mda.getAl());
+        System.out.println("Integer Array: " + Arrays.toString(data.getAl()));
+        op.DisposeAdditive(data.getAl());
         op.DisposeDrink(d);
         op.ZeroCF();
     }

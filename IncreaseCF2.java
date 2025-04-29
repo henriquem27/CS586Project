@@ -1,6 +1,6 @@
-public class IncreaseCF2 implements IncreaseCF<Integer> {
+public class IncreaseCF2 implements IncreaseCF {
     @Override
-    public void IncreaseCF(DS<Integer> ds){
+    public void IncreaseCF(){
         System.out.println("Increasing CF");
     }
 }

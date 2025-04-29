@@ -1,10 +1,8 @@
-public class ZeroCF2 implements ZeroCF<Integer> {
+public class ZeroCF2 implements ZeroCF{
 
 
     @Override
-    public void zeroCF(DS<Integer> ds) {
-        float tempCF = ds.cf;
-        ds.setCf(0);
+    public void zeroCF() {
         System.out.println("Current fund is 0");
     }
 }

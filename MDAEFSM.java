@@ -5,30 +5,25 @@ public class MDAEFSM {
     protected State coinsInsertedState;
     protected State currentState;
     protected Op<?> op;
-    protected int k;
+    protected Data data;
     /* Array al organization
      * | 0     |   1   |
      * | ------| ----- |
      * | Cream | sugar |
      */
-    protected int[] al;
+
 
     public MDAEFSM(Op<Float> op) {
         this.op = op;
-
-        startState = new Start(this, op);
-        idleState = new idle(this, op);
-        noCupsState = new nocups(this, op);
-        coinsInsertedState = new coininserted(this, op);
+        this.data = new Data();
+        startState = new Start(this, op,data);
+        idleState = new idle(this, op,data);
+        noCupsState = new nocups(this, op,data);
+        coinsInsertedState = new coininserted(this, op,data);
         currentState = startState;
         System.out.println("MDAEFSM: Initialized. Current state: " + currentState.getClass().getSimpleName());
 
-        // Initialize EFSM data
-        this.al = new int[2];
-        al[0]=0;
-        al[1]=0;
-        this.k = 0; // Start with 0 cups
-        System.out.println("MDAEFSM: Initial cup count (k) = " + this.k);
+
     }
     public void changeState(State newState) {
         currentState = newState;
@@ -46,8 +41,8 @@ public class MDAEFSM {
     public void insert_cup(int n) {
 
             if (n > 0) {
-                int oldK = this.k; // Store k before incrementing
-                this.k = this.k + n;
+                int oldK = data.getK(); // Store k before incrementing
+                data.setK(n+oldK);
                 // if not in the idle state yet we have to switch to it.
                 if (currentState.getStateId()==1) {
                     currentState.insert_cups(n);
@@ -59,7 +54,7 @@ public class MDAEFSM {
 
     public void coin(int f) {
         currentState.coin(f);
-
+        int[] al= data.getAl();
         if(currentState.getStateId()==2) {
             if (f == 0) {
                 System.out.println("Need more funds");
@@ -69,6 +64,7 @@ public class MDAEFSM {
                 //zero additives
                 al[0] = 0;
                 al[1] = 0;
+                data.setAl(al);
                 changeState(getCoinsInsertedState());
             }
         }
@@ -78,46 +74,56 @@ public class MDAEFSM {
     }
     public void card() {
         currentState.card();
+        int[] al= data.getAl();
         if(currentState.getStateId()==2) {
             // just return coins.
             //zero additives
             al[0]=0;
             al[1]=0;
+            data.setAl(al);
             changeState(getCoinsInsertedState());
         }
     }
 
     public void Additive(int a){
         // just set the array.
+        int[] al= data.getAl();
         if(currentState.getStateId()==3) {
             if (a == 0) {
                 if (al[0] == 0) {
                     al[0] = 1;
+                    data.setAl(al);
                 } else {
                     al[0] = 0;
+                    data.setAl(al);
                 }
             }
             if (a == 1) {
-                if (al[0] == 1) {
-                    al[0] = 1;
+                if(al[1] == 1) {
+                    al[1] = 1;
+                    data.setAl(al);
                 } else {
-                    al[0] = 1;
+                    al[1] = 1;
+                    data.setAl(al);
                 }
             }
         }
     }
     public void drink(int type){
+        int k= data.getK();
         if(currentState.getStateId()==3) {
             if(k<=1){
                 // need to change state to no cups
                 currentState.dispose_drink(type);
                 k=k-1;
+                data.setK(k);
                 changeState(getNoCupsState());
             }
             else{
                 // just perform action
                 currentState.dispose_drink(type);
                 k=k-1;
+                data.setK(k);
             }
         }
     }
@@ -140,6 +146,5 @@ public class MDAEFSM {
     public State getNoCupsState() { return noCupsState; }
     public State getCoinsInsertedState() { return coinsInsertedState; }
 
-    public int getK() { return k; }
-    public int[] getAl() { return al; }
+
 }

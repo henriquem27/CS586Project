@@ -1,27 +1,25 @@
 public class VM1 {
     private MDAEFSM md;
     private AF af;
-    private DS<Float> ds;
+    private DS1 ds;
 
     // simple class tha makes all the connections when vm-1 is selected.
     public void vm1Startup(){
         this.af = new CF1();
-        this.ds = (DS<Float>) af.getDSobj(); // Cast needed if AF returns DSInterface<?>
-        StorePrice<Float> sp = (StorePrice<Float>) af.getSPobj();
-        ZeroCF<Float> zcf = (ZeroCF<Float>) af.getZCFobj();
-        IncreaseCF<Float> icf = (IncreaseCF<Float>) af.getICFobj();
+        this.ds = (DS1) af.getDSobj();
+        StorePrice sp = af.getSPobj();
+        ZeroCF zcf =  af.getZCFobj();
+        IncreaseCF icf = af.getICFobj();
         ReturnCoin rc  = af.getRCobj();
         DisposeDrink dd = af.getDDobj();
         DisposeAdditive da = af.getDAddobj();
-        System.out.println("Creating a MDAEFSM");
-         // 1. Create the factory for VM1
-        Op<Float> op = new Op<>(ds, sp,zcf,icf,da,dd,rc);
+        //System.out.println("Creating a MDAEFSM");
+        Op<Float> op = new Op<>(this.ds, sp,zcf,icf,da,dd,rc);
 
-        // 4. Create MDAEFSM, injecting the Op object
+
         this.md = new MDAEFSM(op);
     }
     public void create(float p) {
-
         ds.setTemp_p(p);
         md.create();
     }

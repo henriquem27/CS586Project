@@ -1,19 +1,15 @@
 abstract class State {
     protected MDAEFSM mda;
     protected Op<?> op;
+    protected Data data;
 
 
-
-    public void setOp(Op<?> op) {
-        this.op = op;
+    public State(MDAEFSM mdaefsm, Op<?> op_obj, Data data_obj) {
+        this.mda = mdaefsm;
+        this.op = op_obj;
+        this.data = data_obj;
     }
 
-    public void vmState(MDAEFSM mda){
-        this.mda = mda;
-    }
-    public void op(Op op){
-        this.op=op;
-    }
     public abstract int getStateId();
     public void create() {System.out.println("Operation create not available in this state.");}
     public void insert_cups(int n) {System.out.println("Inser_Cups not on this state");} // n represents # of cups

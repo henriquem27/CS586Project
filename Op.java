@@ -1,17 +1,17 @@
 public class Op<T extends Number> {
     // pointers
     private DS<T> ds;
-    private StorePrice<T> sp;
-    private ZeroCF<T> zcf;
-    private IncreaseCF<T> icf;
+    private StorePrice sp;
+    private ZeroCF zcf;
+    private IncreaseCF icf;
     private DisposeAdditive da;
     private DisposeDrink dd;
     private ReturnCoin rc;
-    public Op(DS<?> ds, StorePrice<?> sp,ZeroCF<?> zcf,IncreaseCF<?> icf,DisposeAdditive da,DisposeDrink dd,ReturnCoin rc) {
+    public Op(DS<?> ds, StorePrice sp,ZeroCF zcf,IncreaseCF icf,DisposeAdditive da,DisposeDrink dd,ReturnCoin rc) {
         this.ds = (DS<T>) ds;
-        this.sp = (StorePrice<T>) sp;
-        this.zcf= (ZeroCF<T>) zcf;
-        this.icf = (IncreaseCF<T>) icf;
+        this.sp = sp;
+        this.zcf= zcf;
+        this.icf = icf;
         this.da = da;
         this.dd = dd;
         this.rc = rc;
@@ -27,15 +27,15 @@ public class Op<T extends Number> {
     }
     public void StorePrice() {
         System.out.println("In op store price");
-        sp.storePrice(ds);
+        sp.storePrice();
     }
     public void ZeroCF(){
         System.out.println("In op ZeroCF");
-        zcf.zeroCF(ds);
+        zcf.zeroCF();
     } // zero Cumulative Fund cf
     public void  IncreaseCF(){
         System.out.println("In IncreaseCF");
-        icf.IncreaseCF(ds);
+        icf.IncreaseCF();
     } // increase Cumulative Fund cf
     public void ReturnCoins(){
         System.out.println("In op ReturnCoins");

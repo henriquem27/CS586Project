@@ -1,7 +1,11 @@
 public class CF1 implements AF {
+    private DS1 ds;
+    public CF1() {
+        this.ds = new DS1(0.0f,0.0f,0.0f,0.0f);
+    }
     @Override
-    public IncreaseCF<Float> getICFobj() {
-        return new IncreaseCF1();
+    public IncreaseCF getICFobj() {
+        return new IncreaseCF1(this.ds);
     }
 
     @Override
@@ -15,8 +19,8 @@ public class CF1 implements AF {
     }
 
     @Override
-    public DS<Float> getDSobj() {
-        return new DS<>(0.0f, 0.0f, 0.0f, 0.0f);
+    public DS1 getDSobj() {
+        return this.ds;
     }
 
     @Override
@@ -25,13 +29,13 @@ public class CF1 implements AF {
     }
 
     @Override
-    public StorePrice<Float> getSPobj() {
-        return new StorePrice1();
+    public StorePrice getSPobj() {
+        return new StorePrice1(this.ds);
     }
 
     @Override
-    public ZeroCF<Float> getZCFobj() {
-        return new ZeroCF1();
+    public ZeroCF getZCFobj() {
+        return new ZeroCF1(this.ds);
     }
 
 }
