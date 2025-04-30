@@ -1,36 +1,47 @@
+/*
+*
+* ABSTRACT FACTORY PATTERN
+* Returns pointers  object for vm2 strategies.
+* */
+
+
 public class CF2 implements AF{
+    private DS2 ds;
+    public CF2() {
+        this.ds = new DS2(0,0,0,0);
+    }
     @Override
     public IncreaseCF getICFobj() {
-        return null;
+        return new IncreaseCF2(this.ds);
     }
 
     @Override
     public DisposeAdditive getDAddobj() {
-        return null;
+        return new DisposeAdditive2();
     }
 
     @Override
     public DisposeDrink getDDobj() {
-        return null;
+        return new DisposeDrink2();
     }
 
     @Override
     public DS getDSobj() {
-        return null;
+        return this.ds;
     }
 
     @Override
     public ReturnCoin getRCobj() {
-        return null;
+        return new ReturnCoin2();
     }
 
     @Override
     public StorePrice getSPobj() {
-        return null;
+        return new StorePrice2(this.ds);
     }
 
     @Override
     public ZeroCF getZCFobj() {
-        return null;
+        return new ZeroCF2(this.ds);
     }
 }

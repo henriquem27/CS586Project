@@ -120,5 +120,104 @@ public class Driver {
                 } // endswitch
             } //endwhile
         }
+        if (ch == '2') {
+            VM2 vm2 = new VM2();
+            int p;
+            int v;
+            int n;
+            int x;
+            vm2.vm1Startup();
+
+            System.out.print(" Vending Machine-2");
+            System.out.print("\n");
+            System.out.print(" MENU of Operations");
+            System.out.print("\n");
+            System.out.print(" 0. create(int)");
+            System.out.print("\n");
+            System.out.print(" 1. coin(int)");
+            System.out.print("\n");
+            System.out.print(" 2. sugar()");
+            System.out.print("\n");
+            System.out.print(" 3. cream()");
+            System.out.print("\n");
+            System.out.print(" 4. coffee()");
+            System.out.print("\n");
+            System.out.print(" 5. insert_cups(int)");
+            System.out.print("\n");
+            System.out.print(" 6. set_price(int)");
+            System.out.print("\n");
+            System.out.print(" 7. cancel()");
+            System.out.print("\n");
+            System.out.print(" q. Quit the demo program");
+            System.out.print("\n");
+            System.out.print(" Please make a note of these operations");
+            System.out.print("\n");
+            System.out.print(" Vending Machine-1 Execution");
+            System.out.print("\n");
+
+            while (ch != 'q') {
+
+                System.out.print(" Select Operation: ");
+                System.out.print("\n");
+                System.out.print("0-create,1-coin,2-sugar \n 3-Cream,4-Coffee,5-insert_cups \n 6-set_price,7-cancel");
+                System.out.print("\n");
+                ch = sc.next().charAt(0);
+                switch (ch) {
+                    case '0': //create
+                        System.out.print(" Operation: create(INT p)");
+                        System.out.print("\n");
+                        System.out.print(" Enter value of parameter p:");
+                        System.out.print("\n");
+                        p = sc.nextInt();
+                        vm2.CREATE(p);
+                        break;
+                    case '1': //coin
+                        System.out.print(" Operation: coin(INT v)");
+                        System.out.print("\n");
+                        System.out.print(" Enter value of parameter v:");
+                        System.out.print("\n");
+                        v = sc.nextInt();
+                        vm2.coin(v);
+                        break;
+                    case '2': //sugar
+                        System.out.print(" Operation: sugar()");
+                        System.out.print("\n");
+                        vm2.sugar();
+                        break;
+                    case '3': // cream
+                        System.out.print(" Operation: cream()");
+                        System.out.print("\n");
+                        vm2.cream();
+                        break;
+                    case '4': // cappuccino
+                        System.out.print(" Operation: coffee()");
+                        System.out.print("\n");
+                        vm2.coffee();
+                        break;
+                    case '5': // insert_cups
+                        System.out.print(" Operation: insert_cups(int n)");
+                        System.out.print("\n");
+                        System.out.print(" Enter value of parameter n:");
+                        System.out.print("\n");
+                        n = sc.nextInt();
+                        vm2.insertCups(n);
+                        break;
+                    case '6': // set_price
+                        System.out.print(" Operation: set_price(int v)");
+                        System.out.print("\n");
+                        System.out.print(" Enter value of parameter v:");
+                        System.out.print("\n");
+                        v = sc.nextInt();
+                        vm2.setprice(v);
+                        break;
+                    case '7': // cancel
+                        System.out.print(" Operation: cancel()");
+                        System.out.print("\n");
+                        vm2.CANCEL();
+                        break;
+                } // endswitch
+            } //endwhile
+        }
+
     }
 }

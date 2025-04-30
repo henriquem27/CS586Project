@@ -18,27 +18,27 @@ public class Op<T extends Number> {
         // Initialize other action fields here
     }
     public void DisposeAdditive(int[] al) {
-        System.out.println("In op disposeAdditive ");
+        //System.out.println("In op disposeAdditive ");
         da.disposeAdd(al);
     }
     public void DisposeDrink(int d) {
         dd.dispose(d);
-        System.out.println("In op disposeDrink");
+        /* System.out.println("In op disposeDrink"); */
     }
     public void StorePrice() {
-        System.out.println("In op store price");
+        /* System.out.println("In op store price"); */
         sp.storePrice();
     }
     public void ZeroCF(){
-        System.out.println("In op ZeroCF");
+        //System.out.println("In op ZeroCF");
         zcf.zeroCF();
     } // zero Cumulative Fund cf
     public void  IncreaseCF(){
-        System.out.println("In IncreaseCF");
+        /* System.out.println("In IncreaseCF"); */
         icf.IncreaseCF();
     } // increase Cumulative Fund cf
     public void ReturnCoins(){
-        System.out.println("In op ReturnCoins");
+        /* System.out.println("In op ReturnCoins"); */
         rc.returnCoin();
     }
 

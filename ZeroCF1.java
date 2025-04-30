@@ -7,6 +7,6 @@ public class ZeroCF1 implements ZeroCF{
         float tempCF = ds.cf;
         ds.setCf(0f);
         ds.setTemp_v(0f);
-        System.out.println("Current fund is"+ds.getCf());
+        System.out.println(" \n Current fund is "+ds.getCf());
     }
 }

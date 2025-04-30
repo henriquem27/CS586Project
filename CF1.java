@@ -1,3 +1,10 @@
+
+/*
+ *
+ * ABSTRACT FACTORY PATTERN
+ * Returns pointers  object for vm1 strategies.
+ * */
+
 public class CF1 implements AF {
     private DS1 ds;
     public CF1() {
