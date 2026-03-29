@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="CS586Project:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/CS586Project_jar</output-path>
+    <root id="archive" name="CS586Project.jar">
+      <element id="module-output" name="CS586Project" />
+    </root>
+  </artifact>
+</component>

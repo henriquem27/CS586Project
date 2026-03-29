@@ -1,0 +1,6 @@
+running instructions
+
+to run type this command at a command prompt:
+java -jar CS586Project.jar
+
+then follow the instructions using the keyboard to select the options.
